@@ -1,0 +1,7 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/study02/Study02.VC.VC.opendb
+/study02/Study02.VC.db
+/study02/FileAPI/x64/Debug/FileAPI.tlog/link.command.1.tlog
