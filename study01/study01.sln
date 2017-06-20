@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DllInject", "DllInject\DllI
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TemplateDemo", "TemplateDemo\TemplateDemo.vcxproj", "{5F7E8C04-D2C5-433C-8516-E0CD35B0A419}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FG3_STD", "FG3_STD\FG3_STD.vcxproj", "{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{5F7E8C04-D2C5-433C-8516-E0CD35B0A419}.Release|x64.Build.0 = Release|x64
 		{5F7E8C04-D2C5-433C-8516-E0CD35B0A419}.Release|x86.ActiveCfg = Release|Win32
 		{5F7E8C04-D2C5-433C-8516-E0CD35B0A419}.Release|x86.Build.0 = Release|Win32
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Debug|x64.ActiveCfg = Debug|x64
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Debug|x64.Build.0 = Debug|x64
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Debug|x86.ActiveCfg = Debug|Win32
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Debug|x86.Build.0 = Debug|Win32
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Release|x64.ActiveCfg = Release|x64
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Release|x64.Build.0 = Release|x64
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Release|x86.ActiveCfg = Release|Win32
+		{B81E263E-CF3E-4A42-9E6E-41F2B9BF0D7C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
