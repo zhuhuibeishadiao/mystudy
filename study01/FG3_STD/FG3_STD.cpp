@@ -8,17 +8,18 @@
 #include <vector>
 #include <iostream>
 
-
+//
 void TestGenerate_n()
 {
 	
-	auto vec = std::vector<int>{};
+	//真正的随机是这样的
+	auto vec = std::vector<UINT>{};
 	std::generate_n(std::back_inserter(vec), 10000, [=]() {
 		UINT num = 0;
 		_rdrand32_step(&num);
 		return num;
 	});
-	std::cout << "nihao";
+	
 }
 
 int main()
