@@ -1,20 +1,21 @@
 
-// EditDemoDlg.h : 头文件
+// ProgressDemoDlg.h : 头文件
 //
 
 #pragma once
+#include "afxcmn.h"
 
 
-// CEditDemoDlg 对话框
-class CEditDemoDlg : public CDialogEx
+// CProgressDemoDlg 对话框
+class CProgressDemoDlg : public CDialogEx
 {
 // 构造
 public:
-	CEditDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CProgressDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_EDITDEMO_DIALOG };
+	enum { IDD = IDD_PROGRESSDEMO_DIALOG };
 #endif
 
 	protected:
@@ -32,5 +33,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedBtnCountstr();
+	CProgressCtrl m_progress;
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

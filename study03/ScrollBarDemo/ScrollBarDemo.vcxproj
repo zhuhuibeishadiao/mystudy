@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A595B2EC-1A77-4B2B-A98E-596F45FF0F34}</ProjectGuid>
-    <RootNamespace>EditDemo</RootNamespace>
+    <ProjectGuid>{C043B0BD-1E28-47BB-B3C0-A6B6B7D2E576}</ProjectGuid>
+    <RootNamespace>ScrollBarDemo</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -176,15 +176,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EditDemo.h" />
-    <ClInclude Include="EditDemoDlg.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ScrollBarDemo.h" />
+    <ClInclude Include="ScrollBarDemoDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditDemo.cpp" />
-    <ClCompile Include="EditDemoDlg.cpp" />
+    <ClCompile Include="ScrollBarDemo.cpp" />
+    <ClCompile Include="ScrollBarDemoDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -193,13 +193,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EditDemo.rc" />
+    <ResourceCompile Include="ScrollBarDemo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\EditDemo.rc2" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\ScrollBarDemo.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\EditDemo.ico" />
+    <Image Include="res\ScrollBarDemo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -218,7 +219,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="EditDemo.rc" />
+      <UserProperties RESOURCE_FILE="ScrollBarDemo.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

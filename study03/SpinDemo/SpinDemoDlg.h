@@ -1,20 +1,20 @@
 
-// EditDemoDlg.h : 头文件
+// SpinDemoDlg.h : 头文件
 //
 
 #pragma once
 
 
-// CEditDemoDlg 对话框
-class CEditDemoDlg : public CDialogEx
+// CSpinDemoDlg 对话框
+class CSpinDemoDlg : public CDialogEx
 {
 // 构造
 public:
-	CEditDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CSpinDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_EDITDEMO_DIALOG };
+	enum { IDD = IDD_SPINDEMO_DIALOG };
 #endif
 
 	protected:
@@ -31,6 +31,4 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnBnClickedBtnCountstr();
 };

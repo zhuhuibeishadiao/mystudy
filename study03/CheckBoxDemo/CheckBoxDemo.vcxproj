@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A595B2EC-1A77-4B2B-A98E-596F45FF0F34}</ProjectGuid>
-    <RootNamespace>EditDemo</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectGuid>{4838AB4B-C986-4CEA-A8EC-39F334831694}</ProjectGuid>
+    <RootNamespace>CheckBoxDemo</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -176,15 +176,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EditDemo.h" />
-    <ClInclude Include="EditDemoDlg.h" />
+    <ClInclude Include="CheckBoxDemo.h" />
+    <ClInclude Include="CheckBoxDemoDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditDemo.cpp" />
-    <ClCompile Include="EditDemoDlg.cpp" />
+    <ClCompile Include="CheckBoxDemo.cpp" />
+    <ClCompile Include="CheckBoxDemoDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -193,13 +193,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EditDemo.rc" />
+    <ResourceCompile Include="CheckBoxDemo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\EditDemo.rc2" />
+    <None Include="res\CheckBoxDemo.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\EditDemo.ico" />
+    <Image Include="res\CheckBoxDemo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -218,7 +218,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="EditDemo.rc" />
+      <UserProperties RESOURCE_FILE="CheckBoxDemo.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -1,10 +1,10 @@
 
-// EditDemoDlg.cpp : 实现文件
+// SpinDemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "EditDemo.h"
-#include "EditDemoDlg.h"
+#include "SpinDemo.h"
+#include "SpinDemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,32 +45,31 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CEditDemoDlg 对话框
+// CSpinDemoDlg 对话框
 
 
 
-CEditDemoDlg::CEditDemoDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_EDITDEMO_DIALOG, pParent)
+CSpinDemoDlg::CSpinDemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_SPINDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CEditDemoDlg::DoDataExchange(CDataExchange* pDX)
+void CSpinDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 }
 
-BEGIN_MESSAGE_MAP(CEditDemoDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CSpinDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BTN_COUNTSTR, &CEditDemoDlg::OnBnClickedBtnCountstr)
 END_MESSAGE_MAP()
 
 
-// CEditDemoDlg 消息处理程序
+// CSpinDemoDlg 消息处理程序
 
-BOOL CEditDemoDlg::OnInitDialog()
+BOOL CSpinDemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -100,11 +99,16 @@ BOOL CEditDemoDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	//Spin极其简单
+	CSpinButtonCtrl *pSpin = 
+				reinterpret_cast<CSpinButtonCtrl *>(GetDlgItem(IDC_SPIN_DEC));
+	pSpin->SetRange32(0x80000000, 0x7FFFFFFF);//最小，最大；
+
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CEditDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CSpinDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -121,7 +125,7 @@ void CEditDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CEditDemoDlg::OnPaint()
+void CSpinDemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -148,23 +152,8 @@ void CEditDemoDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CEditDemoDlg::OnQueryDragIcon()
+HCURSOR CSpinDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
-void CEditDemoDlg::OnBnClickedBtnCountstr()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	CString strInput;
-	CString strOutput;
-	if (GetDlgItemTextW(IDC_EDIT_INPUT, strInput) == 0)
-	{
-		SetDlgItemTextW(IDC_STATIC_OUTPUT, L"你还没输入呢");
-	}
-	strOutput.Format(L"%d", strInput.GetLength());
-	SetDlgItemTextW(IDC_STATIC_OUTPUT, strOutput);
-
-}

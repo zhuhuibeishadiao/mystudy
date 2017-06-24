@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A595B2EC-1A77-4B2B-A98E-596F45FF0F34}</ProjectGuid>
-    <RootNamespace>EditDemo</RootNamespace>
+    <ProjectGuid>{2759AFC8-2B53-4673-87F2-D2E5D9E73695}</ProjectGuid>
+    <RootNamespace>SpinDemo</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -176,15 +176,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EditDemo.h" />
-    <ClInclude Include="EditDemoDlg.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SpinDemo.h" />
+    <ClInclude Include="SpinDemoDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditDemo.cpp" />
-    <ClCompile Include="EditDemoDlg.cpp" />
+    <ClCompile Include="SpinDemo.cpp" />
+    <ClCompile Include="SpinDemoDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -193,13 +193,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EditDemo.rc" />
+    <ResourceCompile Include="SpinDemo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\EditDemo.rc2" />
+    <None Include="res\SpinDemo.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\EditDemo.ico" />
+    <Image Include="res\SpinDemo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -218,7 +218,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="EditDemo.rc" />
+      <UserProperties RESOURCE_FILE="SpinDemo.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

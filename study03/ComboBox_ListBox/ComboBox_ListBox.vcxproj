@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A595B2EC-1A77-4B2B-A98E-596F45FF0F34}</ProjectGuid>
-    <RootNamespace>EditDemo</RootNamespace>
+    <ProjectGuid>{10A42C0C-BB03-42C7-A598-3E85C4FA1E1A}</ProjectGuid>
+    <RootNamespace>ComboBox_ListBox</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -176,15 +176,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EditDemo.h" />
-    <ClInclude Include="EditDemoDlg.h" />
+    <ClInclude Include="ComboBox_ListBox.h" />
+    <ClInclude Include="ComboBox_ListBoxDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditDemo.cpp" />
-    <ClCompile Include="EditDemoDlg.cpp" />
+    <ClCompile Include="ComboBox_ListBox.cpp" />
+    <ClCompile Include="ComboBox_ListBoxDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -193,13 +193,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EditDemo.rc" />
+    <ResourceCompile Include="ComboBox_ListBox.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\EditDemo.rc2" />
+    <None Include="res\ComboBox_ListBox.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\EditDemo.ico" />
+    <Image Include="res\ComboBox_ListBox.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -216,9 +216,4 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties RESOURCE_FILE="EditDemo.rc" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

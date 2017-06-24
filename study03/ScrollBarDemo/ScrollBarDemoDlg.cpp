@@ -1,10 +1,10 @@
 
-// EditDemoDlg.cpp : 实现文件
+// ScrollBarDemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "EditDemo.h"
-#include "EditDemoDlg.h"
+#include "ScrollBarDemo.h"
+#include "ScrollBarDemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,32 +45,33 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CEditDemoDlg 对话框
+// CScrollBarDemoDlg 对话框
 
 
 
-CEditDemoDlg::CEditDemoDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_EDITDEMO_DIALOG, pParent)
+CScrollBarDemoDlg::CScrollBarDemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_SCROLLBARDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CEditDemoDlg::DoDataExchange(CDataExchange* pDX)
+void CScrollBarDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_SCROLLBAR, m_scroll);
 }
 
-BEGIN_MESSAGE_MAP(CEditDemoDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CScrollBarDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BTN_COUNTSTR, &CEditDemoDlg::OnBnClickedBtnCountstr)
+	ON_WM_HSCROLL()
 END_MESSAGE_MAP()
 
 
-// CEditDemoDlg 消息处理程序
+// CScrollBarDemoDlg 消息处理程序
 
-BOOL CEditDemoDlg::OnInitDialog()
+BOOL CScrollBarDemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -100,11 +101,17 @@ BOOL CEditDemoDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-
+	SCROLLINFO sinfo = {};
+	sinfo.cbSize = sizeof(SCROLLINFO);
+	sinfo.fMask = SIF_RANGE | SIF_PAGE;
+	sinfo.nMin = 0;
+	sinfo.nMax = 100;
+	sinfo.nPage = 10;
+	m_scroll.SetScrollInfo(&sinfo);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CEditDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CScrollBarDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -121,7 +128,7 @@ void CEditDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CEditDemoDlg::OnPaint()
+void CScrollBarDemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -148,23 +155,51 @@ void CEditDemoDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CEditDemoDlg::OnQueryDragIcon()
+HCURSOR CScrollBarDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-
-void CEditDemoDlg::OnBnClickedBtnCountstr()
+//MFC滚动条demo
+//在 initDlg中初始、并设置滚动条信息。
+//nPos操作滚动条的pos
+void CScrollBarDemoDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	// TODO: 在此添加控件通知处理程序代码
-	CString strInput;
-	CString strOutput;
-	if (GetDlgItemTextW(IDC_EDIT_INPUT, strInput) == 0)
-	{
-		SetDlgItemTextW(IDC_STATIC_OUTPUT, L"你还没输入呢");
-	}
-	strOutput.Format(L"%d", strInput.GetLength());
-	SetDlgItemTextW(IDC_STATIC_OUTPUT, strOutput);
+	//
+	SCROLLINFO sinfo = {};
+	pScrollBar->GetScrollInfo(&sinfo);
 
+	int newPos = sinfo.nPos;
+	switch (nSBCode)
+	{
+	case SB_THUMBTRACK:	//用户拖动滚动条
+		newPos = nPos;
+		break;
+	case SB_LINELEFT:	//左边的按钮
+		newPos -= 1;
+		break;
+	case SB_LINERIGHT:	//右边的按钮
+		newPos += 1;
+		break;
+	case SB_PAGELEFT:	//按页滚动
+		newPos -= 10;
+		break;
+	case SB_PAGERIGHT:	//按页滚动
+		newPos += 10;
+		break;
+	default:
+		break;
+	}
+
+	if (newPos > sinfo.nMax) newPos = sinfo.nMax;
+	if (newPos < sinfo.nMin) newPos = sinfo.nMin;
+		
+	pScrollBar->SetScrollPos(newPos);//这句话直接对SCROLLINFO.nPos进行设置
+	//有了newPos，之后是你真正要弄的逻辑了
+
+	CString str;
+	str.Format(L"当前位置：%d", newPos);
+	SetDlgItemTextW(IDC_STATIC_SBINDEX, str);
+	CDialogEx::OnHScroll(nSBCode, nPos, pScrollBar);
 }

@@ -1,20 +1,21 @@
 
-// EditDemoDlg.h : 头文件
+// ScrollBarDemoDlg.h : 头文件
 //
 
 #pragma once
+#include "afxwin.h"
 
 
-// CEditDemoDlg 对话框
-class CEditDemoDlg : public CDialogEx
+// CScrollBarDemoDlg 对话框
+class CScrollBarDemoDlg : public CDialogEx
 {
 // 构造
 public:
-	CEditDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CScrollBarDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_EDITDEMO_DIALOG };
+	enum { IDD = IDD_SCROLLBARDEMO_DIALOG };
 #endif
 
 	protected:
@@ -32,5 +33,6 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedBtnCountstr();
+	CScrollBar m_scroll;
+	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 };
