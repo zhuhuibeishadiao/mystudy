@@ -1,10 +1,10 @@
 
-// ComboBox_ListBoxDlg.cpp : 实现文件
+// TreeCtrlDemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "ComboBox_ListBox.h"
-#include "ComboBox_ListBoxDlg.h"
+#include "TreeCtrlDemo.h"
+#include "TreeCtrlDemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,35 +45,37 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 对话框
+// CTreeCtrlDemoDlg 对话框
 
 
 
-CComboBox_ListBoxDlg::CComboBox_ListBoxDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_COMBOBOX_LISTBOX_DIALOG, pParent)
+CTreeCtrlDemoDlg::CTreeCtrlDemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_TREECTRLDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CComboBox_ListBoxDlg::DoDataExchange(CDataExchange* pDX)
+void CTreeCtrlDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO, m_combo);
-	DDX_Control(pDX, IDC_LIST, m_list);
+	DDX_Control(pDX, IDC_TREE1, m_tree);
 }
 
-BEGIN_MESSAGE_MAP(CComboBox_ListBoxDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CTreeCtrlDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADD, &CComboBox_ListBoxDlg::OnBnClickedButtonAdd)
-	ON_BN_CLICKED(IDC_BUTTON_DEL, &CComboBox_ListBoxDlg::OnBnClickedButtonDel)
+	
+	ON_BN_CLICKED(IDC_BUTTON_INSERT, &CTreeCtrlDemoDlg::OnBnClickedButtonInsert)
+	ON_BN_CLICKED(IDC_BUTTON_DEL, &CTreeCtrlDemoDlg::OnBnClickedButtonDel)
+	ON_BN_CLICKED(IDC_UPDATE, &CTreeCtrlDemoDlg::OnBnClickedUpdate)
+	ON_NOTIFY(TVN_SELCHANGED, IDC_TREE, &CTreeCtrlDemoDlg::OnSelchangedTree)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 消息处理程序
+// CTreeCtrlDemoDlg 消息处理程序
 
-BOOL CComboBox_ListBoxDlg::OnInitDialog()
+BOOL CTreeCtrlDemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -107,7 +109,7 @@ BOOL CComboBox_ListBoxDlg::OnInitDialog()
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CTreeCtrlDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -124,7 +126,7 @@ void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CComboBox_ListBoxDlg::OnPaint()
+void CTreeCtrlDemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -151,35 +153,77 @@ void CComboBox_ListBoxDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CComboBox_ListBoxDlg::OnQueryDragIcon()
+HCURSOR CTreeCtrlDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//Combox和ListBox的Demo
-void CComboBox_ListBoxDlg::OnBnClickedButtonAdd()
+
+
+//treeDemo增删查改
+//增按钮
+void CTreeCtrlDemoDlg::OnBnClickedButtonInsert()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CString str;
 	GetDlgItemTextW(IDC_EDIT_INPUT, str);
 
-	auto index = m_combo.AddString(str);
-	m_combo.SetCurSel(index);
+	HTREEITEM hTreeItem = m_tree.GetSelectedItem();
+	if (!hTreeItem)
+		hTreeItem = TVI_ROOT;
+	
+	TVINSERTSTRUCT ts = {};
+	ts.hParent = hTreeItem;
+	ts.item.pszText = (LPWSTR)(LPCTSTR)str;  //这样也可以转换
+	ts.item.mask = TVIF_TEXT;
+	ts.hInsertAfter = TVI_LAST;
+	
 
-	index = m_list.AddString(str);
-	m_list.SetCurSel(index);
+	HTREEITEM hNewItem = m_tree.InsertItem(&ts);
+	m_tree.SelectItem(hNewItem);
+	m_tree.EnsureVisible(hNewItem);	
 }
 
-
-void CComboBox_ListBoxDlg::OnBnClickedButtonDel()
+//删按钮
+void CTreeCtrlDemoDlg::OnBnClickedButtonDel()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	auto index = m_combo.GetCurSel();
-	index = m_combo.DeleteString(index);
-	m_combo.SetCurSel(index - 1);
-	
-	index = m_list.GetCurSel();
-	index = m_list.DeleteString(index);
-	m_list.SetCurSel(index - 1);
+	HTREEITEM hTreeItem = m_tree.GetSelectedItem();
+	if (!hTreeItem)
+		return;
+	//
+	HTREEITEM hParent = m_tree.GetParentItem(hTreeItem);
+	m_tree.DeleteItem(hTreeItem);
+	m_tree.SelectItem(hParent);
 }
+
+//点击直接查
+void CTreeCtrlDemoDlg::OnSelchangedTree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+	HTREEITEM hTreeItem = m_tree.GetSelectedItem();
+	if (hTreeItem)
+	{
+		CString str = m_tree.GetItemText(hTreeItem);
+		SetDlgItemTextW(IDC_EDIT_INPUT, str);
+	}
+	*pResult = 0;
+}
+
+
+//改按钮
+void CTreeCtrlDemoDlg::OnBnClickedUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	HTREEITEM hTreeItem = m_tree.GetSelectedItem();
+	if (hTreeItem)
+	{
+		CString str;
+		GetDlgItemTextW(IDC_EDIT_INPUT, str);
+		m_tree.SetItemText(hTreeItem, str);
+	}
+}
+
+

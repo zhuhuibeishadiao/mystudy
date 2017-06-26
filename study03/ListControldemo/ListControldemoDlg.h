@@ -1,21 +1,21 @@
 
-// ComboBox_ListBoxDlg.h : 头文件
+// ListControldemoDlg.h : 头文件
 //
 
 #pragma once
-#include "afxwin.h"
+#include "afxcmn.h"
 
 
-// CComboBox_ListBoxDlg 对话框
-class CComboBox_ListBoxDlg : public CDialogEx
+// CListControldemoDlg 对话框
+class CListControldemoDlg : public CDialogEx
 {
 // 构造
 public:
-	CComboBox_ListBoxDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CListControldemoDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_COMBOBOX_LISTBOX_DIALOG };
+	enum { IDD = IDD_LISTCONTROLDEMO_DIALOG };
 #endif
 
 	protected:
@@ -33,8 +33,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
+	CListCtrl m_list;
 	afx_msg void OnBnClickedButtonAdd();
 	afx_msg void OnBnClickedButtonDel();
-	CComboBox m_combo;
-	CListBox m_list;
 };

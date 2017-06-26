@@ -1,10 +1,10 @@
 
-// ComboBox_ListBoxDlg.cpp : 实现文件
+// EditRichDemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "ComboBox_ListBox.h"
-#include "ComboBox_ListBoxDlg.h"
+#include "EditRichDemo.h"
+#include "EditRichDemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,35 +45,34 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 对话框
+// CEditRichDemoDlg 对话框
 
 
 
-CComboBox_ListBoxDlg::CComboBox_ListBoxDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_COMBOBOX_LISTBOX_DIALOG, pParent)
+CEditRichDemoDlg::CEditRichDemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_EDITRICHDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CComboBox_ListBoxDlg::DoDataExchange(CDataExchange* pDX)
+void CEditRichDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO, m_combo);
-	DDX_Control(pDX, IDC_LIST, m_list);
+	DDX_Control(pDX, IDC_RICHEDIT21, m_edit);
 }
 
-BEGIN_MESSAGE_MAP(CComboBox_ListBoxDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CEditRichDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADD, &CComboBox_ListBoxDlg::OnBnClickedButtonAdd)
-	ON_BN_CLICKED(IDC_BUTTON_DEL, &CComboBox_ListBoxDlg::OnBnClickedButtonDel)
+	ON_BN_CLICKED(IDC_BUTTON_COLOR, &CEditRichDemoDlg::OnBnClickedButtonColor)
+	ON_BN_CLICKED(IDC_BUTTON_FONT, &CEditRichDemoDlg::OnBnClickedButtonFont)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 消息处理程序
+// CEditRichDemoDlg 消息处理程序
 
-BOOL CComboBox_ListBoxDlg::OnInitDialog()
+BOOL CEditRichDemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -107,7 +106,7 @@ BOOL CComboBox_ListBoxDlg::OnInitDialog()
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CEditRichDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -124,7 +123,7 @@ void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CComboBox_ListBoxDlg::OnPaint()
+void CEditRichDemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -151,35 +150,41 @@ void CComboBox_ListBoxDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CComboBox_ListBoxDlg::OnQueryDragIcon()
+HCURSOR CEditRichDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//Combox和ListBox的Demo
-void CComboBox_ListBoxDlg::OnBnClickedButtonAdd()
+//富文本框例子
+void CEditRichDemoDlg::OnBnClickedButtonColor()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CString str;
-	GetDlgItemTextW(IDC_EDIT_INPUT, str);
-
-	auto index = m_combo.AddString(str);
-	m_combo.SetCurSel(index);
-
-	index = m_list.AddString(str);
-	m_list.SetCurSel(index);
+	CHARFORMAT cf = { 0 };
+	cf.cbSize = sizeof(CHARFORMAT);
+	m_edit.GetSelectionCharFormat(cf);
+	CColorDialog color_dialog(cf.crTextColor);
+	if (color_dialog.DoModal() == IDOK)
+	{
+		cf.crTextColor = color_dialog.GetColor();
+		cf.dwMask = CFM_COLOR;
+		cf.dwEffects = 0;
+		m_edit.SetSelectionCharFormat(cf);
+	}
 }
 
 
-void CComboBox_ListBoxDlg::OnBnClickedButtonDel()
+void CEditRichDemoDlg::OnBnClickedButtonFont()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	auto index = m_combo.GetCurSel();
-	index = m_combo.DeleteString(index);
-	m_combo.SetCurSel(index - 1);
-	
-	index = m_list.GetCurSel();
-	index = m_list.DeleteString(index);
-	m_list.SetCurSel(index - 1);
+	CHARFORMAT cf = { 0 };
+	cf.cbSize = sizeof(CHARFORMAT);
+	m_edit.GetSelectionCharFormat(cf);
+
+	CFontDialog font_dialog(cf);
+	if (font_dialog.DoModal() == IDOK)
+	{
+		font_dialog.GetCharFormat(cf);
+		m_edit.SetSelectionCharFormat(cf);
+	}
 }

@@ -1,10 +1,10 @@
 
-// ComboBox_ListBoxDlg.cpp : 实现文件
+// ListControldemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "ComboBox_ListBox.h"
-#include "ComboBox_ListBoxDlg.h"
+#include "ListControldemo.h"
+#include "ListControldemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,35 +45,34 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 对话框
+// CListControldemoDlg 对话框
 
 
 
-CComboBox_ListBoxDlg::CComboBox_ListBoxDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_COMBOBOX_LISTBOX_DIALOG, pParent)
+CListControldemoDlg::CListControldemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_LISTCONTROLDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CComboBox_ListBoxDlg::DoDataExchange(CDataExchange* pDX)
+void CListControldemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO, m_combo);
 	DDX_Control(pDX, IDC_LIST, m_list);
 }
 
-BEGIN_MESSAGE_MAP(CComboBox_ListBoxDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CListControldemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADD, &CComboBox_ListBoxDlg::OnBnClickedButtonAdd)
-	ON_BN_CLICKED(IDC_BUTTON_DEL, &CComboBox_ListBoxDlg::OnBnClickedButtonDel)
+	ON_BN_CLICKED(IDC_BUTTON_ADD, &CListControldemoDlg::OnBnClickedButtonAdd)
+	ON_BN_CLICKED(IDC_BUTTON_DEL, &CListControldemoDlg::OnBnClickedButtonDel)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 消息处理程序
+// CListControldemoDlg 消息处理程序
 
-BOOL CComboBox_ListBoxDlg::OnInitDialog()
+BOOL CListControldemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -103,11 +102,14 @@ BOOL CComboBox_ListBoxDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	m_list.InsertColumn(0, L"第一列", LVCFMT_CENTER, 100);
+	m_list.InsertColumn(1, L"第二列", LVCFMT_CENTER, 100);
+
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CListControldemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -124,7 +126,7 @@ void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CComboBox_ListBoxDlg::OnPaint()
+void CListControldemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -151,35 +153,37 @@ void CComboBox_ListBoxDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CComboBox_ListBoxDlg::OnQueryDragIcon()
+HCURSOR CListControldemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//Combox和ListBox的Demo
-void CComboBox_ListBoxDlg::OnBnClickedButtonAdd()
+//List Control Demo
+void CListControldemoDlg::OnBnClickedButtonAdd()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	int nCount = m_list.GetItemCount();
+	int nTemp = 1;
 	CString str;
-	GetDlgItemTextW(IDC_EDIT_INPUT, str);
+	str.Format(L"%d行，%d列", nCount + 1, nTemp);
+	m_list.InsertItem(nCount, str, 0);
 
-	auto index = m_combo.AddString(str);
-	m_combo.SetCurSel(index);
-
-	index = m_list.AddString(str);
-	m_list.SetCurSel(index);
+	str.Format(L"%d行，%d列", nCount + 1, nTemp + 1);
+	m_list.SetItemText(nCount, 1, str);
 }
 
 
-void CComboBox_ListBoxDlg::OnBnClickedButtonDel()
+void CListControldemoDlg::OnBnClickedButtonDel()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	auto index = m_combo.GetCurSel();
-	index = m_combo.DeleteString(index);
-	m_combo.SetCurSel(index - 1);
-	
-	index = m_list.GetCurSel();
-	index = m_list.DeleteString(index);
-	m_list.SetCurSel(index - 1);
+	auto nCount = m_list.GetItemCount();
+	for (auto i = nCount - 1; i >= 0; i--)
+	{
+		if (m_list.GetItemState(i, LVIS_SELECTED) == LVIS_SELECTED)
+		{
+			m_list.DeleteItem(i);
+			break;
+		}
+	}
 }

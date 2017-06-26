@@ -1,11 +1,12 @@
 
-// ComboBox_ListBoxDlg.cpp : 实现文件
+// TabControlDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "ComboBox_ListBox.h"
-#include "ComboBox_ListBoxDlg.h"
+#include "TabControl.h"
+#include "TabControlDlg.h"
 #include "afxdialogex.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -44,37 +45,32 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
-
-// CComboBox_ListBoxDlg 对话框
-
-
-
-CComboBox_ListBoxDlg::CComboBox_ListBoxDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_COMBOBOX_LISTBOX_DIALOG, pParent)
+// CTabControlDlg 对话框
+CTabControlDlg::CTabControlDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_TABCONTROL_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CComboBox_ListBoxDlg::DoDataExchange(CDataExchange* pDX)
+void CTabControlDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO, m_combo);
-	DDX_Control(pDX, IDC_LIST, m_list);
+	DDX_Control(pDX, IDC_TAB1, m_tab);
 }
 
-BEGIN_MESSAGE_MAP(CComboBox_ListBoxDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CTabControlDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADD, &CComboBox_ListBoxDlg::OnBnClickedButtonAdd)
-	ON_BN_CLICKED(IDC_BUTTON_DEL, &CComboBox_ListBoxDlg::OnBnClickedButtonDel)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CTabControlDlg::OnSelchangeTab1)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 消息处理程序
+// CTabControlDlg 消息处理程序
 
-BOOL CComboBox_ListBoxDlg::OnInitDialog()
+BOOL CTabControlDlg::OnInitDialog()
 {
+	
 	CDialogEx::OnInitDialog();
 
 	// 将“关于...”菜单项添加到系统菜单中。
@@ -103,11 +99,25 @@ BOOL CComboBox_ListBoxDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	
+	m_tab.InsertItem(0, L"第一页");
+	m_tab.InsertItem(1, L"第二页");
+	
+	m_page1.Create(MAKEINTRESOURCE(IDD_DIALOG_PAGE1), &m_tab);
+	m_page2.Create(MAKEINTRESOURCE(IDD_DIALOG_PAGE2), &m_tab);
 
+	CRect rc;
+	m_tab.GetClientRect(&rc);
+	rc.top += 25;
+	m_page1.MoveWindow(rc);
+	m_page2.MoveWindow(rc);
+
+	m_page1.ShowWindow(SW_SHOW);
+	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CTabControlDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -124,7 +134,7 @@ void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CComboBox_ListBoxDlg::OnPaint()
+void CTabControlDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -151,35 +161,29 @@ void CComboBox_ListBoxDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CComboBox_ListBoxDlg::OnQueryDragIcon()
+HCURSOR CTabControlDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//Combox和ListBox的Demo
-void CComboBox_ListBoxDlg::OnBnClickedButtonAdd()
+//Tab Control Demo
+//核心代码在init里
+void CTabControlDlg::OnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CString str;
-	GetDlgItemTextW(IDC_EDIT_INPUT, str);
-
-	auto index = m_combo.AddString(str);
-	m_combo.SetCurSel(index);
-
-	index = m_list.AddString(str);
-	m_list.SetCurSel(index);
-}
-
-
-void CComboBox_ListBoxDlg::OnBnClickedButtonDel()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	auto index = m_combo.GetCurSel();
-	index = m_combo.DeleteString(index);
-	m_combo.SetCurSel(index - 1);
-	
-	index = m_list.GetCurSel();
-	index = m_list.DeleteString(index);
-	m_list.SetCurSel(index - 1);
+	switch (m_tab.GetCurSel())
+	{
+	case 0:
+		m_page1.ShowWindow(SW_SHOW);
+		m_page2.ShowWindow(SW_HIDE);
+		break;
+	case 1:
+		m_page1.ShowWindow(SW_HIDE);
+		m_page2.ShowWindow(SW_SHOW);
+		break;
+	default:
+		break;
+	}
+	*pResult = 0;
 }

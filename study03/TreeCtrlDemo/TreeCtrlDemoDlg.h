@@ -1,21 +1,21 @@
 
-// ComboBox_ListBoxDlg.h : 头文件
+// TreeCtrlDemoDlg.h : 头文件
 //
 
 #pragma once
-#include "afxwin.h"
+#include "afxcmn.h"
 
 
-// CComboBox_ListBoxDlg 对话框
-class CComboBox_ListBoxDlg : public CDialogEx
+// CTreeCtrlDemoDlg 对话框
+class CTreeCtrlDemoDlg : public CDialogEx
 {
 // 构造
 public:
-	CComboBox_ListBoxDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CTreeCtrlDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_COMBOBOX_LISTBOX_DIALOG };
+	enum { IDD = IDD_TREECTRLDEMO_DIALOG };
 #endif
 
 	protected:
@@ -33,8 +33,9 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedButtonAdd();
+	afx_msg void OnBnClickedButtonInsert();
 	afx_msg void OnBnClickedButtonDel();
-	CComboBox m_combo;
-	CListBox m_list;
+	afx_msg void OnBnClickedUpdate();
+	CTreeCtrl m_tree;
+	afx_msg void OnSelchangedTree(NMHDR *pNMHDR, LRESULT *pResult);
 };

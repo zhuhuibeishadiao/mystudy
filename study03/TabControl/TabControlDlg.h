@@ -1,21 +1,23 @@
 
-// ComboBox_ListBoxDlg.h : 头文件
+// TabControlDlg.h : 头文件
 //
 
 #pragma once
-#include "afxwin.h"
+#include "afxcmn.h"
+#include "DlgPage1.h"
+#include "DlgPage2.h"
 
 
-// CComboBox_ListBoxDlg 对话框
-class CComboBox_ListBoxDlg : public CDialogEx
+// CTabControlDlg 对话框
+class CTabControlDlg : public CDialogEx
 {
 // 构造
 public:
-	CComboBox_ListBoxDlg(CWnd* pParent = NULL);	// 标准构造函数
+	CTabControlDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_COMBOBOX_LISTBOX_DIALOG };
+	enum { IDD = IDD_TABCONTROL_DIALOG };
 #endif
 
 	protected:
@@ -33,8 +35,8 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedButtonAdd();
-	afx_msg void OnBnClickedButtonDel();
-	CComboBox m_combo;
-	CListBox m_list;
+	CTabCtrl m_tab;
+	CDlgPage1 m_page1;
+	CDlgPage2 m_page2;
+	afx_msg void OnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 };

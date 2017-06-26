@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{10A42C0C-BB03-42C7-A598-3E85C4FA1E1A}</ProjectGuid>
-    <RootNamespace>ComboBox_ListBox</RootNamespace>
+    <ProjectGuid>{85697C94-4B4C-4F41-9E40-1F55F54A0EF9}</ProjectGuid>
+    <RootNamespace>ListControldemo</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -176,15 +176,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ComboBox_ListBox.h" />
-    <ClInclude Include="ComboBox_ListBoxDlg.h" />
+    <ClInclude Include="ListControldemo.h" />
+    <ClInclude Include="ListControldemoDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ComboBox_ListBox.cpp" />
-    <ClCompile Include="ComboBox_ListBoxDlg.cpp" />
+    <ClCompile Include="ListControldemo.cpp" />
+    <ClCompile Include="ListControldemoDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -193,13 +193,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ComboBox_ListBox.rc" />
+    <ResourceCompile Include="ListControldemo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\ComboBox_ListBox.rc2" />
+    <None Include="res\ListControldemo.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\ComboBox_ListBox.ico" />
+    <Image Include="res\ListControldemo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -218,7 +218,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="ComboBox_ListBox.rc" />
+      <UserProperties RESOURCE_FILE="ListControldemo.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

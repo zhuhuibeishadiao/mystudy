@@ -1,10 +1,10 @@
 
-// ComboBox_ListBoxDlg.cpp : 实现文件
+// CalendarDemoDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "ComboBox_ListBox.h"
-#include "ComboBox_ListBoxDlg.h"
+#include "CalendarDemo.h"
+#include "CalendarDemoDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -45,35 +45,33 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 对话框
+// CCalendarDemoDlg 对话框
 
 
 
-CComboBox_ListBoxDlg::CComboBox_ListBoxDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_COMBOBOX_LISTBOX_DIALOG, pParent)
+CCalendarDemoDlg::CCalendarDemoDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(IDD_CALENDARDEMO_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CComboBox_ListBoxDlg::DoDataExchange(CDataExchange* pDX)
+void CCalendarDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO, m_combo);
-	DDX_Control(pDX, IDC_LIST, m_list);
+	DDX_Control(pDX, IDC_MONTHCALENDAR, m_calendar);
 }
 
-BEGIN_MESSAGE_MAP(CComboBox_ListBoxDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CCalendarDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADD, &CComboBox_ListBoxDlg::OnBnClickedButtonAdd)
-	ON_BN_CLICKED(IDC_BUTTON_DEL, &CComboBox_ListBoxDlg::OnBnClickedButtonDel)
+	ON_NOTIFY(MCN_SELCHANGE, IDC_MONTHCALENDAR, &CCalendarDemoDlg::OnSelchangeMonthcalendar)
 END_MESSAGE_MAP()
 
 
-// CComboBox_ListBoxDlg 消息处理程序
+// CCalendarDemoDlg 消息处理程序
 
-BOOL CComboBox_ListBoxDlg::OnInitDialog()
+BOOL CCalendarDemoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -107,7 +105,7 @@ BOOL CComboBox_ListBoxDlg::OnInitDialog()
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CCalendarDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -124,7 +122,7 @@ void CComboBox_ListBoxDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CComboBox_ListBoxDlg::OnPaint()
+void CCalendarDemoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -151,35 +149,25 @@ void CComboBox_ListBoxDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CComboBox_ListBoxDlg::OnQueryDragIcon()
+HCURSOR CCalendarDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//Combox和ListBox的Demo
-void CComboBox_ListBoxDlg::OnBnClickedButtonAdd()
+
+void CCalendarDemoDlg::OnSelchangeMonthcalendar(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	LPNMSELCHANGE pSelChange = reinterpret_cast<LPNMSELCHANGE>(pNMHDR);
 	// TODO: 在此添加控件通知处理程序代码
-	CString str;
-	GetDlgItemTextW(IDC_EDIT_INPUT, str);
+	SYSTEMTIME st;
+	m_calendar.GetCurSel(&st);
 
-	auto index = m_combo.AddString(str);
-	m_combo.SetCurSel(index);
+	CTime time(st);
+	auto day = time.GetDayOfWeek() == 0 ? 7 : time.GetDayOfWeek() - 1;
 
-	index = m_list.AddString(str);
-	m_list.SetCurSel(index);
-}
-
-
-void CComboBox_ListBoxDlg::OnBnClickedButtonDel()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	auto index = m_combo.GetCurSel();
-	index = m_combo.DeleteString(index);
-	m_combo.SetCurSel(index - 1);
-	
-	index = m_list.GetCurSel();
-	index = m_list.DeleteString(index);
-	m_list.SetCurSel(index - 1);
+	CString strOUt;
+	strOUt.Format(L"%u年%u月%u日, 星期%d", st.wYear, st.wMonth, st.wDay, day);
+	SetDlgItemTextW(IDC_EDIT_OUTPUT, strOUt);
+	*pResult = 0;
 }
