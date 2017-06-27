@@ -7,7 +7,8 @@
 #include <iterator>
 #include <vector>
 #include <iostream>
-
+extern void TestIteratordemo();
+extern void TestAlgorithmDemo();
 //
 void TestGenerate_n()
 {
@@ -22,9 +23,16 @@ void TestGenerate_n()
 	
 }
 
+
+
 int main()
 {
-	TestGenerate_n();
+	//文件的
+	//TestGenerate_n();
+
+	//其他文件的
+	TestIteratordemo();
+	TestAlgorithmDemo();
 	return 0;
 }
 

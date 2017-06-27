@@ -32,5 +32,11 @@
     <ClCompile Include="FG3_STD.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="IteratorDemo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STLAlgorithmDemo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
