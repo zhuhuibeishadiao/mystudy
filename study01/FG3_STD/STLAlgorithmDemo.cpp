@@ -327,6 +327,127 @@ void Demo06()
 	else
 		std::cout << "none_of:有些元素大于10\n";
 }
+void Demo07()
+{
+	std::vector<int> vec{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	std::ostream_iterator<int> output(std::cout, " ");
+	std::cout << "初始元素顺序为：\n";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//swap
+	std::swap(vec[0], vec[1]);
+	std::cout << "\n调用swap之后元素顺序为：\n";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//iter_swap
+	std::iter_swap(vec.begin(), vec.begin() + 1);
+	std::cout << "\n调用iter_swap之后元素顺序为：\n";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//swap_rangs
+	std::swap_ranges(vec.begin(), vec.begin() + 5, vec.begin() + 5);
+	std::cout << "\n调用swap_rangs之后元素顺序为：\n";
+	std::copy(vec.begin(), vec.end(), output);
+	std::cout << std::endl;
+}
+void Demo08()
+{
+	std::vector<int> vec1{ 1,3,5,7,9 };
+	std::vector<int> vec2{ 2,4,5,7,9 };
+	std::ostream_iterator<int> output(std::cout, " ");
+	std::cout << "vec1元素为:";
+	std::copy(vec1.cbegin(), vec1.cend(), output);
+	std::cout << "\nvec2元素为:";
+	std::copy(vec2.cbegin(), vec2.cend(), output);
+
+	//copy_backward
+	//std::copy_backward(vec1.cbegin(), vec1.cend(), std::inserter(result, result.end()));
+	std::vector<int> result1(10);
+	std::copy_backward(vec1.cbegin(), vec1.cend(), result1.end());
+	std::cout << "\ncopy_backward操作之后result1元素为:";
+	std::copy(result1.cbegin(), result1.cend(), output);
+
+	//merge
+	std::vector<int> result2;
+	merge(vec1.cbegin(), vec1.cend(),vec2.cbegin(),
+		vec2.cend(), std::back_inserter(result2));//可以
+	
+	//merge(vec1.cbegin(), vec1.cend(), vec2.cbegin(),
+		//vec2.cend(), std::inserter(result2, result2.end())); //可以
+
+	//merge(vec1.cbegin(), vec1.cend(), vec2.cbegin(),
+		//vec2.cend(), std::front_inserter(result2));//不行
+	std::cout << "\nmerge操作之后result2元素为:";
+	std::copy(result2.cbegin(), result2.cend(), output);
+
+	//Unique  去重
+	auto endLocation = std::unique(result2.begin(), result2.end());
+	std::cout << "\n对result2进行去重之后元素为:";
+	std::copy(result2.begin(), endLocation, output);
+
+	//reverse
+	std::reverse(vec1.begin(), vec1.end());
+	std::cout << "\n对vec1进行逆置：";
+	std::copy(vec1.begin(), vec1.end(), output);
+}
+void Demo09()
+{
+	std::vector<int> vec{ 1,3,5,7,9,1,3,5,7,9 };
+	std::ostream_iterator<int> output(std::cout, " ");
+	std::cout << "vec元素为：\n";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//inpalce_merge
+	std::inplace_merge(vec.begin(), vec.begin() + 5, vec.end());
+	std::cout << "\n调用inplace_merge之后vec元素为：\n";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//unique_copy
+	std::vector<int> result1;
+	unique_copy(vec.cbegin(), vec.cend(), std::back_inserter(result1));
+	std::cout << "\n调用unique_copy之后result1元素为：\n";
+	std::copy(result1.cbegin(), result1.cend(), output);
+
+	//reverse_copy
+	std::vector<int> result2;
+	std::reverse_copy(vec.cbegin(), vec.cend(), back_inserter(result2));
+	std::cout << "\n调用reverse_copy之后result2元素为：\n";
+	std::copy(result2.cbegin(), result2.cend(), output);
+	std::cout << std::endl;
+}
+void Demo10()
+{
+	std::vector<int> v1{ 1,2,3,4,5,6,7,8,9,10 };
+	std::vector<int> v2{ 4,5,6,7,8 };
+	std::vector<int> v3{ 4,5,6,11,15 };
+	std::ostream_iterator<int> output(std::cout, " ");
+	std::cout << "v1: ";
+	std::copy(v1.cbegin(), v1.cend(), output);
+	std::cout << "\nv2: ";
+	std::copy(v2.cbegin(), v2.cend(), output);
+	std::cout << "\nv3: ";
+	std::copy(v3.cbegin(), v3.cend(), output);
+
+	//includes
+	if (std::includes(v1.cbegin(), v1.cend(), v2.cbegin(), v2.cend()))
+		std::cout << "\nv1 includes v2";
+	else
+		std::cout << "\na1 does not include v2";
+
+	if (std::includes(v1.cbegin(), v1.cend(), v3.cbegin(), v3.cend()))
+		std::cout << "\nv1 includes v3";
+	else
+		std::cout << "\nv1 does not include v3";
+
+	//set_different
+	std::vector<int> diff;
+	auto ret1 = std::set_difference(v1.cbegin(), v1.cend(), 
+		v2.cbegin(), v2.cend(), std::back_inserter(diff));
+	std::cout << "\ninvoke set_difference to find difference between v1 and v2:\n ";
+	std::copy(diff.begin(), diff.end(), output);
+
+
+}
 void TestAlgorithmDemo()
 {
 	//fill,fill_n,generate,generate_n
@@ -349,5 +470,15 @@ void TestAlgorithmDemo()
 	//Demo06();
 
 	//swap, iter_swap, swap_rangs
+	//Demo07();
 
+	//copy_backward, merge, unique, reverse
+	//Demo08();
+
+	//inplace_merge, unique_copy, reverse_copy
+	//Demo09();
+
+	//includes, set_difference, set_intersection,
+	//set_symmet, ric_difference, set_union
+	Demo10();
 }
