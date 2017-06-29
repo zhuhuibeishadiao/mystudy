@@ -1,13 +1,4 @@
 #include "stdafx.h"
-#include <iostream>
-#include <iterator>
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <map>
-#include <numeric>
-#include <ctime>
-
 
 void Demo01()
 {
@@ -439,19 +430,64 @@ void Demo10()
 	else
 		std::cout << "\nv1 does not include v3";
 
-	//set_different
+	//set_different  在集合1，但不在集合2
 	std::vector<int> diff;
 	auto ret1 = std::set_difference(v1.cbegin(), v1.cend(), 
 		v2.cbegin(), v2.cend(), std::back_inserter(diff));
-	std::cout << "\ninvoke set_difference to find difference between v1 and v2:\n ";
+	std::cout << "\nset_difference of v1 and v2:\n";
 	std::copy(diff.begin(), diff.end(), output);
 
+	//set_intersection 集合1和集合2共有的
+	std::vector<int> intersection;
+	auto ret2 = std::set_intersection(v1.cbegin(), v1.cend(), v2.cbegin(), v2.cend(), std::back_inserter(intersection));
+	std::cout << "\nset_intersection of v1, and v2:\n";
+	std::copy(intersection.cbegin(), intersection.cend(), output);
+
+	//set_symmtetric_difference  找集合1有，集合2没有；集合1没有，集合2有的元素。
+	std::vector<int> symmtric_diff;
+	std::set_symmetric_difference(v1.cbegin(), v1.cend(), v3.cbegin(), v3.cend(), std::back_inserter(symmtric_diff));
+	std::cout << "\nset_symmetric_difference of v1 and v3 is:\n";
+	std::copy(symmtric_diff.cbegin(), symmtric_diff.cend(), output);
+
+	//set_union 合并两个集合
+	std::vector<int> unionVec;
+	std::set_union(v1.cbegin(), v1.cend(), v3.cbegin(), v3.cend(), std::back_inserter(unionVec));
+	std::cout << "\nset_union of v1 and v3:\n";
+	std::copy(unionVec.cbegin(), unionVec.cend(), output);
+	std::cout << std::endl;
+}
+void Demo11()
+{
+	std::vector<int> vec{ 2, 2, 4, 4, 4, 6, 6, 6, 6, 8 };
+	std::ostream_iterator<int> output(std::cout, " ");
+	std::cout << "vec:";
+	std::copy(vec.cbegin(), vec.cend(), output);
+
+	//lower_bound
+	auto low = std::lower_bound(vec.cbegin(), vec.cend(), 6);
+	std::cout << "\nLower bound of 6 is element " << (low - vec.begin()) << " of vec";
+
+	//upper_bound
+	auto upp = std::upper_bound(vec.cbegin(), vec.cend(), 6);
+	std::cout << "\nUpper bound of 6 is element " << (upp - vec.cbegin()) << " of vec";
+
+	//equal_range
+	auto ran = std::equal_range(vec.cbegin(), vec.cend(), 6);
+	std::cout << "\n一步到位" << (ran.first - vec.cbegin()) << "--" << (ran.second - vec.cbegin());
+}
+void Demo12()
+{
+	std::cout << "The minimum of 12 and 7 is: " << std::min(12, 7);
+	std::cout << "\nthe maximum of 12 and 7 is " << std::max(12, 7);
+
+	auto ret = std::minmax(12, 7);
+	std::cout << "\nmin :" << ret.first << " max:" << ret.second;
 
 }
 void TestAlgorithmDemo()
 {
 	//fill,fill_n,generate,generate_n
-	//Demo01();
+	Demo01();
 
 	//equal, mismatch, lexicographical_compare
 	//Demo02();
@@ -480,5 +516,11 @@ void TestAlgorithmDemo()
 
 	//includes, set_difference, set_intersection,
 	//set_symmet, ric_difference, set_union
-	Demo10();
+	//Demo10();
+
+	//lower_bound, upper_bound, equal_range
+	//Demo11();
+
+	//min, max, minmax
+	//Demo12();
 }

@@ -1,7 +1,5 @@
 #include "stdafx.h"
-#include <iostream>
-#include <iterator>
-#include <string>
+
 using namespace std;
 void Demo1()
 {

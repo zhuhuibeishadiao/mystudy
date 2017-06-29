@@ -10,6 +10,16 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <iostream>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <numeric>
+#include <ctime>
+#include <string>
+
 
 
 // TODO:  在此处引用程序需要的其他头文件

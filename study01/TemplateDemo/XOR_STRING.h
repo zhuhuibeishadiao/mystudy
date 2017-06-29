@@ -1,5 +1,5 @@
-#pragma once
-//XOR_STRINGÊ¹IDA¿´²»µ½×Ö·û´®
+ï»¿#pragma once
+//XOR_STRINGä½¿IDAçœ‹ä¸åˆ°å­—ç¬¦ä¸²
 namespace detail
 {
 	template<std::size_t index>
