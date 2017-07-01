@@ -484,10 +484,38 @@ void Demo12()
 	std::cout << "\nmin :" << ret.first << " max:" << ret.second;
 
 }
+
+void Demo13()
+{
+	std::vector<int> origin;
+	//int count = 1000000;
+	int count = 1000;
+	int i = 3;
+
+	//先用10套, 同理100万
+	//先求长度，排除1和2，vector大小是3-10一共8个数字count - 2, i 初始值是3
+	generate_n(std::back_inserter(origin), count - 2, [&]() {return i++;});
+
+	//
+	auto ret = std::accumulate(origin.cbegin(), origin.cend(), std::vector<int>{2}, [](std::vector<int> &vec, int val) {
+		
+		if (std::none_of(vec.cbegin(), 
+			std::find_if(vec.cbegin(), vec.cend(), [=](auto x) { return x > sqrt(val); }),
+			[=](int prime) {return val % prime == 0; }))
+		{
+			vec.push_back(val);
+		}
+
+		return vec;
+	});
+	
+	std::copy(ret.cbegin(), ret.cend(), std::ostream_iterator<int>(std::cout, " "));
+	getchar();
+}
 void TestAlgorithmDemo()
 {
 	//fill,fill_n,generate,generate_n
-	Demo01();
+	//Demo01();
 
 	//equal, mismatch, lexicographical_compare
 	//Demo02();
@@ -523,4 +551,8 @@ void TestAlgorithmDemo()
 
 	//min, max, minmax
 	//Demo12();
+
+	//求1-100万所有质数
+	Demo13();
+
 }
