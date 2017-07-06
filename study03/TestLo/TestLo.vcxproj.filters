@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CommonCPP">
+      <UniqueIdentifier>{977a4c50-d86d-43c9-a922-1a3d7d61ea58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonMFC">
+      <UniqueIdentifier>{4fb88dc9-c481-46f9-af07-db18e748f5a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonLib">
+      <UniqueIdentifier>{19774528-8c35-4679-8f96-e43a8c34cf6f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\Common.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\nativelib.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\scope_exit.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\SingleTon.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\unique_resource.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\WinStationLib.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_listview.h">
+      <Filter>CommonMFC</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\inject.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lib_header.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lsp_helper.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Memory.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\pkg_msg.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Process.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Services.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\snapshot_process.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\usr_ini_file.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\util.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\client.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\server.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgListCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\snapshot_process.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\util.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgListCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MainResource.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MainResource.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\TempIcon.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

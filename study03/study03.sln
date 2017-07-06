@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalendarDemo", "CalendarDem
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListControldemo", "ListControldemo\ListControldemo.vcxproj", "{85697C94-4B4C-4F41-9E40-1F55F54A0EF9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLo", "TestLo\TestLo.vcxproj", "{CBAB4629-65D0-4F4E-B362-F0BA67C18751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{85697C94-4B4C-4F41-9E40-1F55F54A0EF9}.Release|x64.Build.0 = Release|x64
 		{85697C94-4B4C-4F41-9E40-1F55F54A0EF9}.Release|x86.ActiveCfg = Release|Win32
 		{85697C94-4B4C-4F41-9E40-1F55F54A0EF9}.Release|x86.Build.0 = Release|Win32
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Debug|x64.ActiveCfg = Debug|x64
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Debug|x64.Build.0 = Debug|x64
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Debug|x86.ActiveCfg = Debug|Win32
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Debug|x86.Build.0 = Debug|Win32
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Release|x64.ActiveCfg = Release|x64
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Release|x64.Build.0 = Release|x64
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Release|x86.ActiveCfg = Release|Win32
+		{CBAB4629-65D0-4F4E-B362-F0BA67C18751}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
