@@ -166,7 +166,6 @@ void CDlgListCtrl::OnBnClickedButton5()
 //加载ini
 void CDlgListCtrl::OnBnClickedButton4()
 {
-	// TODO: 在此添加控件通知处理程序代码
 	//步骤1：获得文件卢进
 	WCHAR filePath[MAX_PATH] = {};
 	if (!usr::util::GetOpenName(GetModuleHandle(NULL), filePath, L"INI(*.ini)\0*.ini\0", L"选择"))
@@ -183,8 +182,6 @@ void CDlgListCtrl::OnBnClickedButton4()
 	{
 		m_listview.add_column(sub);
 	}
-
 	//加载数据
 	m_listview.load(file.get());
-
 }

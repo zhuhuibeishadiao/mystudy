@@ -101,8 +101,7 @@ BOOL CMainCDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	
-	std::vector<usr::util::snapshot::process_item> vec;
-	usr::util::snapshot::get_snapshot_process(vec);
+	
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }

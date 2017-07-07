@@ -76,7 +76,8 @@ namespace wdk::flt
 #include "unique_resource.h"
 //设计模式的头
 #include "SingleTon.h"
-
+//string加密头
+#include "xor_string.h"
 //NTDLL的头
 namespace ntdll
 {

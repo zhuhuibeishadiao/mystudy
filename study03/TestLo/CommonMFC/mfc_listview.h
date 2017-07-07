@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "afxcmn.h"
-
+#pragma warning(disable:4267, 4244)
 namespace mfc
 {
 	using _listview_item = std::map<_tstring, _tstring>;

@@ -99,6 +99,9 @@
     <ClInclude Include="CommonLib\server.h">
       <Filter>CommonLib</Filter>
     </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_tab.h">
+      <Filter>CommonMFC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainDlg.cpp">

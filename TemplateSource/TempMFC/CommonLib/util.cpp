@@ -22,6 +22,52 @@ namespace usr::util
 		freopen_s(&pFile, "CON", "w", stdout);
 		freopen_s(&pFile, "CON", "w", stderr);
 	}
+	void hex2string(_tstring &string_, LPVOID data_, std::size_t size_)
+	{
+		string_ = _T("");
+		const TCHAR IntegerToChar[] = _T("0123456789abcdef"); /*0-16*/
+		auto buffer_ = reinterpret_cast<PUCHAR>(data_);
+		for (SIZE_T i = 0; i < size_; i++)
+		{
+			TCHAR szString[3] = {};
+			szString[0] = IntegerToChar[buffer_[i] >> 4];
+			szString[1] = IntegerToChar[buffer_[i] & 0xf];
+			string_ += szString;
+		}
+		return;
+	}
+	void string2hex(_tstring string_, std::vector<BYTE> &data_)
+	{
+		const int CharToInteger[256] =
+		{
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 0 - 15 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 16 - 31 */
+			36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, /* ' ' - '/' */
+			0, 1, 2, 3, 4, 5, 6, 7, 8, 9, /* '0' - '9' */
+			52, 53, 54, 55, 56, 57, 58, /* ':' - '@' */
+			10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, /* 'A' - 'Z' */
+			59, 60, 61, 62, 63, 64, /* '[' - '`' */
+			10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, /* 'a' - 'z' */
+			65, 66, 67, 68, -1, /* '{' - 127 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 128 - 143 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 144 - 159 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 160 - 175 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 176 - 191 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 192 - 207 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 208 - 223 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, /* 224 - 239 */
+			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 /* 240 - 255 */
+		};
+		auto length = string_.length() / 2;
+		data_.resize(length);
+		for (SIZE_T i = 0; i < length; i++)
+		{
+			data_[i] =
+				(UCHAR)(CharToInteger[(UCHAR)string_[i * 2]] << 4) +
+				(UCHAR)CharToInteger[(UCHAR)string_[i * 2 + 1]];
+		}
+		return;
+	}
 	DWORD GetOpenName(HINSTANCE hInstance, TCHAR* outbuf, const TCHAR* filter, const TCHAR* title)
 	{
 		OPENFILENAME ofn;

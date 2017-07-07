@@ -1,5 +1,5 @@
 #pragma once
-#include "../CommonCPP/Common.h"
+#include "CommonCPP/Common.h"
 #include <Ws2spi.h>  
 #include <Sporder.h>
 #include <guiddef.h>

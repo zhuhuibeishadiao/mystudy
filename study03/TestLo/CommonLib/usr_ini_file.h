@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #pragma warning(disable:4018)
+#pragma warning(disable:4267)
 namespace usr
 {
 	using ini_item = std::map<_tstring, _tstring>;
