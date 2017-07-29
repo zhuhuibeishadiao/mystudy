@@ -193,6 +193,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AsioClient.h" />
+    <ClInclude Include="AsioServer.h" />
     <ClInclude Include="CommonCPP\Common.h" />
     <ClInclude Include="CommonCPP\nativelib.h" />
     <ClInclude Include="CommonCPP\scope_exit.h" />

@@ -188,6 +188,7 @@ namespace usr::network
 			my_service.stop();
 			_run.join();
 		}
+
 		static iocp_server * init_server(asio::io_service &my,std::string port,client_callback pfn=nullptr)
 		{
 			try
@@ -201,6 +202,7 @@ namespace usr::network
 			}
 			return nullptr;
 		}
+
 		void set_callback(client_callback callback)
 		{
 			callback_ = callback;

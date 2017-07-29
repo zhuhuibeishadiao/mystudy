@@ -102,6 +102,12 @@
     <ClInclude Include="CommonMFC\mfc_tab.h">
       <Filter>CommonMFC</Filter>
     </ClInclude>
+    <ClInclude Include="AsioClient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AsioServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainDlg.cpp">
