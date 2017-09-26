@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CF52FE6A-3CF9-421C-9590-5AD2371F1462}</ProjectGuid>
+    <TemplateGuid>{dd38f7fc-d7bd-488b-9242-7d8754cde80d}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">Win32</Platform>
+    <RootNamespace>DriverTempEx</RootNamespace>
+    <ProjectName>DrvCppTemp</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <CallingConvention>StdCall</CallingConvention>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>libcntpr.lib;wdm.lib;wdmsec.lib;aux_klib.lib;ntstrsafe.lib;Netio.lib;tdi.lib;fltMgr.lib;Scsiport.lib;uuid.lib;fwpkclnt.lib;Ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Inf Include="DriverTemp.inf" />
+  </ItemGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\arm.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\asmjit.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\asmjit_apibegin.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\asmjit_apiend.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\asmjit_build.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\arch.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\assembler.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\codebuilder.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\codecompiler.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\codeemitter.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\codeholder.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\constpool.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\cpuinfo.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\func.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\globals.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\inst.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\logging.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\misc_p.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\operand.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\osutils.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\regalloc_p.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\runtime.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\simdtypes.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\string.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\utils.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\vmem.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\base\zone.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86assembler.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86builder.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86compiler.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86emitter.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86globals.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86inst.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86instimpl_p.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86internal_p.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86logging_p.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86misc.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86operand.h" />
+    <ClInclude Include="..\asmjit\asmjit\src\asmjit\x86\x86regalloc_p.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\asmparser.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\asmtk.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\asmtokenizer.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\elfdefs.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\globals.h" />
+    <ClInclude Include="..\asmjit\asmtk\src\asmtk\strtod.h" />
+    <ClInclude Include="..\Common\Base.h" />
+    <ClInclude Include="..\Common\cabfile\nt_cabfile.h" />
+    <ClInclude Include="..\Common\cabfile\nt_lzxd.h" />
+    <ClInclude Include="..\Common\callback\bsod\callback.bsod.h" />
+    <ClInclude Include="..\Common\callback\excallback\nt_excallback.h" />
+    <ClInclude Include="..\Common\callback\image\nt_image_callback.h" />
+    <ClInclude Include="..\Common\callback\nmi\callback.nmi.h" />
+    <ClInclude Include="..\Common\callback\nt_callback.h" />
+    <ClInclude Include="..\Common\callback\object\nt_object_callback.h" />
+    <ClInclude Include="..\Common\callback\object\nt_obj_file_callback.h" />
+    <ClInclude Include="..\Common\callback\object\nt_obj_process_callback.h" />
+    <ClInclude Include="..\Common\callback\object\nt_obj_thread_callback.h" />
+    <ClInclude Include="..\Common\callback\pnp\nt_pnp_callback.h" />
+    <ClInclude Include="..\Common\callback\power\nt_power_callback.h" />
+    <ClInclude Include="..\Common\callback\processor\nt_processor_callback.h" />
+    <ClInclude Include="..\Common\callback\process\nt_process_callback.h" />
+    <ClInclude Include="..\Common\callback\register\nt_cmreg_callback.h" />
+    <ClInclude Include="..\Common\callback\session\nt_session_callback.h" />
+    <ClInclude Include="..\Common\callback\shutdown\nt_shutdown_callback.h" />
+    <ClInclude Include="..\Common\callback\thread\nt_thread_callback.h" />
+    <ClInclude Include="..\Common\Device\Device.h" />
+    <ClInclude Include="..\Common\dpc\nt_dpc.h" />
+    <ClInclude Include="..\Common\dpc\nt_dpc_help.h" />
+    <ClInclude Include="..\Common\Driver\nt_driver.h" />
+    <ClInclude Include="..\Common\event\nt_event.h" />
+    <ClInclude Include="..\Common\event\nt_kevent.h" />
+    <ClInclude Include="..\Common\file\nt_file.h" />
+    <ClInclude Include="..\Common\hive\nt_hive.h" />
+    <ClInclude Include="..\Common\hive\reg_hive.h" />
+    <ClInclude Include="..\Common\intel_def.h" />
+    <ClInclude Include="..\Common\ipi\nt_ipi.h" />
+    <ClInclude Include="..\Common\irpfilter\nt_irp_filter.h" />
+    <ClInclude Include="..\Common\Lock\cpu_lock.h" />
+    <ClInclude Include="..\Common\Lock\nt_lock.h" />
+    <ClInclude Include="..\Common\Lock\nt_mutex.h" />
+    <ClInclude Include="..\Common\Lock\nt_rundownlock.h" />
+    <ClInclude Include="..\Common\Lock\nt_rwlock.h" />
+    <ClInclude Include="..\Common\Lock\nt_spinlock.h" />
+    <ClInclude Include="..\Common\Lock\push_lock.h" />
+    <ClInclude Include="..\Common\Log\nt_log.h" />
+    <ClInclude Include="..\Common\memfile\nt_memfile.h" />
+    <ClInclude Include="..\Common\ntos\kdbgblock.h" />
+    <ClInclude Include="..\Common\ntos\ntos.h" />
+    <ClInclude Include="..\Common\ntos\ntos_func_def.h" />
+    <ClInclude Include="..\Common\ntos\object_types\nt_object_types.h" />
+    <ClInclude Include="..\Common\ntos\win10_10586.h" />
+    <ClInclude Include="..\Common\ntos\win10_14393.h" />
+    <ClInclude Include="..\Common\ntos\win10_64_15063.h" />
+    <ClInclude Include="..\Common\ntos\win7_64.h" />
+    <ClInclude Include="..\Common\ntos\win7_sp1_64.h" />
+    <ClInclude Include="..\Common\ntos\win8_0_9200.h" />
+    <ClInclude Include="..\Common\ntos\win8_1_9600.h" />
+    <ClInclude Include="..\Common\nt_status.h" />
+    <ClInclude Include="..\Common\pdbfile\nt_pdbfile.h" />
+    <ClInclude Include="..\Common\reg\nt_reg.h" />
+    <ClInclude Include="..\Common\section\nt_file_map.h" />
+    <ClInclude Include="..\Common\socket\ksocket\ksocket.h" />
+    <ClInclude Include="..\Common\socket\ksocket\ktdi.h" />
+    <ClInclude Include="..\Common\socket\nt_http.h" />
+    <ClInclude Include="..\Common\socket\nt_socket.h" />
+    <ClInclude Include="..\Common\socket\nt_tdi.h" />
+    <ClInclude Include="..\Common\socket\nt_wsk.h" />
+    <ClInclude Include="..\Common\socket\wsk\nt_wsk_socket.h" />
+    <ClInclude Include="..\Common\stdcpp\kernel_stl.h" />
+    <ClInclude Include="..\Common\stdcpp\scope_exit.h" />
+    <ClInclude Include="..\Common\stdcpp\Singleton.h" />
+    <ClInclude Include="..\Common\stdcpp\stdcpp.h" />
+    <ClInclude Include="..\Common\stdcpp\unique_resource.h" />
+    <ClInclude Include="..\Common\string\nt_string.h" />
+    <ClInclude Include="..\Common\thread\nt_thread.h" />
+    <ClInclude Include="..\Common\timer\nt_timer.h" />
+    <ClInclude Include="..\Common\util\ldr.h" />
+    <ClInclude Include="..\Common\util\mem_util.h" />
+    <ClInclude Include="..\Common\util\syscall\nt_syscall.h" />
+    <ClInclude Include="..\Common\util\time.h" />
+    <ClInclude Include="..\Common\util\util.h" />
+    <ClInclude Include="..\Common\workitem\nt_work_item.h" />
+    <ClInclude Include="..\HookEngine\AllHooks.h" />
+    <ClInclude Include="..\HookEngine\AsmGen.h" />
+    <ClInclude Include="..\HookEngine\BaseHook.h" />
+    <ClInclude Include="..\HookEngine\Detours.h" />
+    <ClInclude Include="..\HookEngine\DetoursInternal.h" />
+    <ClInclude Include="..\HookEngine\hook.irp.h" />
+    <ClInclude Include="..\HookEngine\hook.syscall.h" />
+    <ClInclude Include="..\HookEngine\hook_engine.h" />
+    <ClInclude Include="..\HookEngine\idt_hook.h" />
+    <ClInclude Include="..\HookEngine\Intrinsic.h" />
+    <ClInclude Include="..\HookEngine\int_hook.h" />
+    <ClInclude Include="..\HookEngine\Reassembler.h" />
+    <ClInclude Include="..\PatchGuard\patchguard.h" />
+    <ClInclude Include="..\shellcode_loader\shellcode.loader.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="shellcode.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\arch.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\assembler.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\codebuilder.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\codecompiler.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\codeemitter.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\codeholder.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\constpool.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\cpuinfo.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\func.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\globals.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\inst.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\logging.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\operand.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\osutils.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\regalloc.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\runtime.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\string.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\utils.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\vmem.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\base\zone.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86assembler.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86builder.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86compiler.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86inst.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86instimpl.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86internal.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86logging.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86operand.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86operand_regs.cpp" />
+    <ClCompile Include="..\asmjit\asmjit\src\asmjit\x86\x86regalloc.cpp" />
+    <ClCompile Include="..\asmjit\asmtk\src\asmtk\asmparser.cpp" />
+    <ClCompile Include="..\asmjit\asmtk\src\asmtk\asmtokenizer.cpp" />
+    <ClCompile Include="..\Common\cabfile\nt_cabfile.cpp" />
+    <ClCompile Include="..\Common\cabfile\nt_lzxd.cpp" />
+    <ClCompile Include="..\Common\Device\Device.cpp" />
+    <ClCompile Include="..\Common\dpc\dpc.cpp" />
+    <ClCompile Include="..\Common\Driver.cpp" />
+    <ClCompile Include="..\Common\file\nt_file.cpp" />
+    <ClCompile Include="..\Common\irpfilter\nt_irp_filter.cpp" />
+    <ClCompile Include="..\Common\Log\nt_log.cpp" />
+    <ClCompile Include="..\Common\ntos\kdbgblock.cpp" />
+    <ClCompile Include="..\Common\nt_status.cpp" />
+    <ClCompile Include="..\Common\pdbfile\nt_pdbfile.cpp" />
+    <ClCompile Include="..\Common\reg\nt_reg.cpp" />
+    <ClCompile Include="..\Common\socket\ksocket\endian.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Common\socket\ksocket\inet.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Common\socket\ksocket\ksocket.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Common\socket\ksocket\ktdi.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Common\socket\wsk\wsk_socket.cpp" />
+    <ClCompile Include="..\Common\stdcpp\kernel_stl.cpp" />
+    <ClCompile Include="..\Common\stdcpp\stdcpp.cpp" />
+    <ClCompile Include="..\Common\stdcpp\typeinfo.cpp" />
+    <ClCompile Include="..\Common\thread\nt_thread.cpp" />
+    <ClCompile Include="..\Common\timer\nt_timer.cpp" />
+    <ClCompile Include="..\Common\util\ldr.cpp" />
+    <ClCompile Include="..\Common\util\mem_util.cpp" />
+    <ClCompile Include="..\Common\util\time.cpp" />
+    <ClCompile Include="..\Common\util\time_sleep.cpp" />
+    <ClCompile Include="..\Common\util\util.cpp" />
+    <ClCompile Include="..\Common\util\util.idt.cpp" />
+    <ClCompile Include="..\Common\util\ver.cpp" />
+    <ClCompile Include="..\Common\workitem\nt_workitem.cpp" />
+    <ClCompile Include="..\distorm\DistormX.cpp" />
+    <ClCompile Include="..\HookEngine\AsmGen.cpp" />
+    <ClCompile Include="..\HookEngine\Detours32.cpp" />
+    <ClCompile Include="..\HookEngine\Detours64.cpp" />
+    <ClCompile Include="..\HookEngine\DetoursInternal.cpp" />
+    <ClCompile Include="..\HookEngine\idt_hook.cpp" />
+    <ClCompile Include="..\HookEngine\int_hook.cpp" />
+    <ClCompile Include="..\HookEngine\Reassembler.cpp" />
+    <ClCompile Include="..\PatchGuard\Disable.Patchguard.cpp" />
+    <ClCompile Include="..\PatchGuard\Disable.patchguard.early.cpp" />
+    <ClCompile Include="..\PatchGuard\Disable.Patchguard.new.cpp" />
+    <ClCompile Include="..\shellcode_loader\shellcode.loader.cpp">
+      <BufferSecurityCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BufferSecurityCheck>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DriverTemp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Common\asm\common.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\Common\asm\Trap.asm" />
+    <MASM Include="..\HookEngine\idt_hook_asm.asm" />
+    <MASM Include="..\PatchGuard\dispg_asm.asm" />
+    <MASM Include="..\shellcode_loader\shellcode_loader_asm.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
