@@ -645,6 +645,9 @@
     <ClInclude Include="shellcode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ioctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Common\stdcpp\kernel_stl.cpp">
@@ -874,6 +877,9 @@
     </ClCompile>
     <ClCompile Include="..\Common\util\util.idt.cpp">
       <Filter>Common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="dispatch_callback.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

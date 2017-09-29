@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\CommonCPP">
+      <UniqueIdentifier>{9710cf04-4322-4fd7-8caa-f877e9393437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\CommonFG">
+      <UniqueIdentifier>{7826edcf-e1e4-44c2-b914-ac54b82db3bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\CommonLib">
+      <UniqueIdentifier>{e485726d-8da3-4325-aae6-46fec9b20fbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\CommonMFC">
+      <UniqueIdentifier>{35e43145-977e-420a-b919-4013c9183636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\hookengine">
+      <UniqueIdentifier>{004fd3c0-763d-46f2-96bb-39115509ca94}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PEDemo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PEDemoDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\Common.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\nativelib.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\scope_exit.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\SingleTon.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\unique_resource.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\WinStationLib.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\xor_string.h">
+      <Filter>头文件\CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFG\FileUtils.h">
+      <Filter>头文件\CommonFG</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\client.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\dll_hijack.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\inject.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_module.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_patch_loader.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_tools.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lib_header.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lsp_helper.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Memory.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\pkg_msg.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Process.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\server.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Services.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\snapshot_process.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\usr_ini_file.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\util.h">
+      <Filter>头文件\CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_tab.h">
+      <Filter>头文件\CommonMFC</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_listview.h">
+      <Filter>头文件\CommonMFC</Filter>
+    </ClInclude>
+    <ClInclude Include="hookengine\LDasm.h">
+      <Filter>头文件\hookengine</Filter>
+    </ClInclude>
+    <ClInclude Include="hookengine\inlinehook.h">
+      <Filter>头文件\hookengine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PEDemo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PEDemoDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\dll_hijacking.cpp">
+      <Filter>头文件\CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\ldr_patch.cpp">
+      <Filter>头文件\CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\ldr_tools.cpp">
+      <Filter>头文件\CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\snapshot_process.cpp">
+      <Filter>头文件\CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\util.cpp">
+      <Filter>头文件\CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="hookengine\inlinehook.cpp">
+      <Filter>头文件\hookengine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PEDemo.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PEDemo.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\PEDemo.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

@@ -388,6 +388,7 @@
     <ClInclude Include="..\HookEngine\Reassembler.h" />
     <ClInclude Include="..\PatchGuard\patchguard.h" />
     <ClInclude Include="..\shellcode_loader\shellcode.loader.h" />
+    <ClInclude Include="ioctrl.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shellcode.h" />
     <ClInclude Include="stdafx.h" />
@@ -477,6 +478,7 @@
     <ClCompile Include="..\shellcode_loader\shellcode.loader.cpp">
       <BufferSecurityCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BufferSecurityCheck>
     </ClCompile>
+    <ClCompile Include="dispatch_callback.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

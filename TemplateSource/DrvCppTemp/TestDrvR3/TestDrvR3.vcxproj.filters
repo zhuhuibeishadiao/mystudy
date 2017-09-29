@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CommonCPP">
+      <UniqueIdentifier>{198cff12-4002-4d67-93f2-8377ef0afd87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonFG">
+      <UniqueIdentifier>{471a8774-94d6-4f3c-9931-d5558b47c7b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonLib">
+      <UniqueIdentifier>{e206d4b5-b8cd-4ec0-add3-707bdf3a9513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonMFC">
+      <UniqueIdentifier>{a816ed25-267f-470a-a7da-21a323069925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hookengine">
+      <UniqueIdentifier>{5e782e27-77c8-4294-a25e-84a9e5565617}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TestDrvR3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDrvR3Dlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\scope_exit.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\SingleTon.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\unique_resource.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\WinStationLib.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\xor_string.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\Common.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCPP\nativelib.h">
+      <Filter>CommonCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFG\FileUtils.h">
+      <Filter>CommonFG</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\client.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\dll_hijack.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\inject.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_module.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_patch_loader.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\ldr_tools.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lib_header.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\lsp_helper.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Memory.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\pkg_msg.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Process.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\server.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\Services.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\snapshot_process.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\usr_ini_file.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonLib\util.h">
+      <Filter>CommonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_listview.h">
+      <Filter>CommonMFC</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMFC\mfc_tab.h">
+      <Filter>CommonMFC</Filter>
+    </ClInclude>
+    <ClInclude Include="hookengine\LDasm.h">
+      <Filter>hookengine</Filter>
+    </ClInclude>
+    <ClInclude Include="hookengine\inlinehook.h">
+      <Filter>hookengine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TestDrvR3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDrvR3Dlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\dll_hijacking.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\ldr_patch.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\ldr_tools.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\snapshot_process.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonLib\util.cpp">
+      <Filter>CommonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="hookengine\inlinehook.cpp">
+      <Filter>hookengine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TestDrvR3.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\TestDrvR3.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\TestDrvR3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
