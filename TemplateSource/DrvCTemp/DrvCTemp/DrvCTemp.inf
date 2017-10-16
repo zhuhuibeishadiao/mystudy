@@ -1,5 +1,5 @@
 ;
-; DrvCTemp.inf
+; DriverTemp.inf
 ;
 
 [Version]
@@ -29,4 +29,4 @@ DefaultDestDir = 12
 [Strings]
 ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
 ClassName=""
-DiskName="DrvCTemp Source Disk"
+DiskName="DriverTemp Source Disk"

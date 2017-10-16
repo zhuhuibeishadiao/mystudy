@@ -327,9 +327,10 @@ void ddk::nt_reg::close()
 }
 
 
-ddk::nt_reg ddk::nt_reg::create_key(std::wstring key_name)
+std::wstring ddk::nt_reg::create_key(IN OUT std::wstring key_name)
 {
 	auto new_key = key_string + L"\\" + key_name;
 	auto ret = ddk::nt_reg(new_key);
-	return ret;
+	key_name = ret.key_string;
+	return key_name;
 }

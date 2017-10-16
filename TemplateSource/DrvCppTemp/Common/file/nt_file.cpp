@@ -6,7 +6,7 @@ ddk::nt_file::nt_file()
 }
 
 
-ddk::nt_file::~nt_file()
+ddk::nt_file::~nt_file()	
 {
 	if (h_file)
 	{

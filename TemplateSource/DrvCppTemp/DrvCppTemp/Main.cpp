@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ioctrl.h"
 
-extern void setupDispatcherFunction();
+extern void setDpcFun();
 
 ddk::nt_device device;
 VOID DriverUnload(__in DRIVER_OBJECT *driverObject)
@@ -23,7 +23,7 @@ DriverMain(
 	driverObject->DriverUnload = DriverUnload;
 	  
 	//…Ë÷√dispatch∫Ø ˝
-	setupDispatcherFunction();
+	setDpcFun();
 	
 
 	if (device.create_device(DEVICE_NAME, LINK_NAME, true))

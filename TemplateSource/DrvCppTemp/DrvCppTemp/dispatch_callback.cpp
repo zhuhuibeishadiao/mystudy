@@ -26,7 +26,7 @@ NTSTATUS Ioctrl_Handle2(PVOID InputBuffer,
 }
 
 
-void setupDispatcherFunction()
+void setDpcFun()
 {
 
 	//ioctl

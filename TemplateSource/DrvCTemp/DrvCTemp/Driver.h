@@ -1,4 +1,5 @@
-#include "Common/FGHack.h"
+#pragma once
+#include "stdafx.h"
 
 //为避免混淆这两个要一致
 #define  DEVICE_NAME L"\\device\\PopWinDrv"
@@ -13,7 +14,7 @@
 
 /*卸载函数*/
 VOID DriverUnload(PDRIVER_OBJECT pDriverObject);
-
+NTSTATUS CreateDevice(IN PDRIVER_OBJECT pDriverObject);
 /*通用分发函数*/
 NTSTATUS DispatchCommon(PDEVICE_OBJECT pDevObj, PIRP pIrp);
 /*创建分发函数*/

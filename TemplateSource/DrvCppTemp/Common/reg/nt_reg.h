@@ -30,7 +30,7 @@ namespace ddk {
 		bool set_value(std::wstring value_name, ULONG val_type, PVOID value_data, size_t data_size);
 		bool get_value(std::wstring value_name, ULONG val_type, PVOID value_buffer, size_t & buffer_size);
 		void close();
-		nt_reg create_key(std::wstring key_name);
+		std::wstring create_key(std::wstring key_name);
 		nt_reg & operator = (nt_reg &_reg)
 		{
 			this->h_key = _reg.get_handle();

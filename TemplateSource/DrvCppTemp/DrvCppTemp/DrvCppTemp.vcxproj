@@ -41,7 +41,7 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration>Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
-    <RootNamespace>DriverTempEx</RootNamespace>
+    <RootNamespace>DrvCppTemp</RootNamespace>
     <ProjectName>DrvCppTemp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -244,7 +244,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Inf Include="DriverTemp.inf" />
+    <Inf Include="DrvCppTemp.inf" />
   </ItemGroup>
   <ItemGroup>
     <FilesToPackage Include="$(TargetPath)" />
@@ -486,7 +486,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DriverTemp.rc" />
+    <ResourceCompile Include="DrvCppTemp.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Common\asm\common.inc" />

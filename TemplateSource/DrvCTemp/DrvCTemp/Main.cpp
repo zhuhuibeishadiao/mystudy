@@ -1,4 +1,6 @@
-#include "main.h"
+#include "stdafx.h"
+#include "Driver.h"
+
 
 VOID DriverUnload(PDRIVER_OBJECT pDriverObject)
 {
@@ -6,30 +8,39 @@ VOID DriverUnload(PDRIVER_OBJECT pDriverObject)
 	UNICODE_STRING ucLinkName = { 0 };
 	RtlInitUnicodeString(&ucLinkName, LINK_NAME);
 	IoDeleteSymbolicLink(&ucLinkName);
-
 	IoDeleteDevice(pDriverObject->DeviceObject);
-
-	DbgPrint("Driver unloaded");
+	DbgPrint("Driver unloaded\r\n");
 }
 
-NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING RegistryPathName)
+#pragma INITCODE
+extern "C"
+NTSTATUS DriverEntry(_In_ PDRIVER_OBJECT  pDriverObject,_In_ PUNICODE_STRING RegistryPathName)
+{
+	UNREFERENCED_PARAMETER(RegistryPathName);
+	NTSTATUS status = STATUS_SUCCESS;
+	//创建设备
+	status = CreateDevice(pDriverObject);
+	
+	DbgPrint("Driver load ok!\r\n", status);
+	return status;
+}
+
+NTSTATUS CreateDevice(IN PDRIVER_OBJECT pDriverObject)
 {
 	NTSTATUS status = 0;
 	UNICODE_STRING ucDeviceName = { 0 };
-	UNICODE_STRING ucLinkName   = { 0 };
+	UNICODE_STRING ucLinkName = { 0 };
 	PDEVICE_OBJECT pDevObj = NULL;
-	
-	DbgPrint("Driver load begin\n");
 	RtlInitUnicodeString(&ucDeviceName, DEVICE_NAME);
 	RtlInitUnicodeString(&ucLinkName, LINK_NAME);
-	
+
 	//1.创建设备
 	status = IoCreateDevice(pDriverObject,
-							0,
-							&ucDeviceName,
-							FILE_DEVICE_UNKNOWN,
-							0,FALSE,
-							&pDevObj);
+		0,
+		&ucDeviceName,
+		FILE_DEVICE_UNKNOWN,
+		0, FALSE,
+		&pDevObj);
 
 	if (!NT_SUCCESS(status))
 	{
@@ -61,9 +72,9 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING Registr
 	pDriverObject->MajorFunction[IRP_MJ_CLEANUP] = DispatchClean;
 	pDriverObject->MajorFunction[IRP_MJ_CLOSE] = DispatchClose;
 	pDriverObject->DriverUnload = DriverUnload;
-	DbgPrint("Driver load ok!\n", status);
-	return STATUS_SUCCESS; 
+	return STATUS_SUCCESS;
 }
+
 
 NTSTATUS DispatchCommon(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 {
@@ -94,13 +105,13 @@ NTSTATUS DispatchRead(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 	PVOID pReadBuffer = NULL;	//R0与R3通讯的buffer，从pstack中获得
 	ULONG uReadLength = 0;		//R3指定读取多少字节，从pstack中获得
 	PIO_STACK_LOCATION pStack = NULL;	//告诉R3成功或失败，成功返回多少字节
-	
+
 	pStack = IoGetCurrentIrpStackLocation(pIrp);
 
 	pReadBuffer = pIrp->AssociatedIrp.SystemBuffer;
 	uReadLength = pStack->Parameters.Read.Length;	//R3中指定
 
-	//begin read...
+													//begin read...
 	DbgPrint("read call");
 	//end read.....
 
@@ -122,7 +133,7 @@ NTSTATUS DispatchWrite(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 	pWriteBuffer = pIrp->AssociatedIrp.SystemBuffer;
 	uWriteLength = pStack->Parameters.Write.Length;	//R3中指定
 
-	//begin write...
+													//begin write...
 	DbgPrint("write call");
 	//end write.....
 
@@ -145,7 +156,7 @@ NTSTATUS DispatchIoCtl(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 	uOutputLength = pStack->Parameters.DeviceIoControl.OutputBufferLength;
 
 	uIoctrlCode = pStack->Parameters.DeviceIoControl.IoControlCode;
-	
+
 	switch (uIoctrlCode)
 	{
 	case IOCTL_SEND_RESULT_TO_R0:
@@ -178,3 +189,4 @@ NTSTATUS DispatchClose(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 	//ending
 	return STATUS_SUCCESS;
 }
+

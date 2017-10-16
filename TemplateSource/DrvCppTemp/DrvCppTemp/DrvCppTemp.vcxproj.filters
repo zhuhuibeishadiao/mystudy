@@ -217,7 +217,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="DriverTemp.inf">
+    <Inf Include="DrvCppTemp.inf">
       <Filter>Driver Files</Filter>
     </Inf>
   </ItemGroup>
@@ -883,7 +883,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DriverTemp.rc">
+    <ResourceCompile Include="DrvCppTemp.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
